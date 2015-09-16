@@ -40,31 +40,30 @@
     </div>
 </script>
 <script type="text/x-handlebars-template" id="hbsContent">
+    {{#q}}
     <div class="panel panel-default" id="doit-qpanel">
         <div class="panel-body" id="doit-q">
-            <span id="doit-qnum">{{current_qNum jsonQA}}</span><span>.</span>
-            <span id="doit-qc">foo bar what ever, who even cares, foo bar what ever, whowho even cares, no matter what happeever, who even cares, foo bar what ever, whowho even cares, no matter what happens.foo bar ever, who even cares, foo bar what ever, whowho even cares, no matter what happens.foo bar ever, who even cares, foo bar what ever, whowho even cares, no matter what happens.foo bar ever, who even cares, foo bar what ever, whowho even cares, no matter what happens.foo bar ns.foo bar what ever,no matter what happens.foo bar what ever, who even cafoo bar what ever, who even cares, no matter what happens.foo bar what ever, who even cares, no matter what happens.happens...happens.happens......happens.happens...happens.happens..........happens......</span>
+            <span id="doit-qnum">{{qNum}}</span><span>.</span>
+            <span id="doit-qc">{{qc}}</span>
+            <span id="doit-answer">{{../a}}</span>
         </div>
     </div>
     <div class="row text-center">
         <div class="col-sm-6 doit-answer">
-            A
-            <span id="doit-qa_1">A the answer is not right.</span>
+            <span id="doit-qa_1">{{qa_1}}</span>
         </div>
         <div class="col-sm-6 doit-answer doit-answer-selected">
-            B
-            <span id="doit-qa_2">B the answer is all right!</span>
+            <span id="doit-qa_2">{{qa_2}}</span>
         </div>
 
         <div class="col-sm-6 doit-answer">
-            C
-            <span id="doit-qa_3">C the answer is not right.</span>
+            <span id="doit-qa_3">{{qa_3}}</span>
         </div>
         <div class="col-sm-6 doit-answer">
-            D
-            <span id="doit-qa_4">D the answer is not right.</span>
+            <span id="doit-qa_4">{{qa_4}}</span>
         </div>
     </div>
+    {{/q}}
 </script>
 <script type="application/javascript">
     // Renderer definitions
@@ -82,6 +81,8 @@
         // return json.q[0].qNum;
     })
 </script>
-<script src="js/renderhbs.js"></script>
+<script src="js/initpage.js"></script>
+<script src="js/rendereverything.js"></script>
+<script src="js/attachEvents.js"></script>
 </body>
 </html>

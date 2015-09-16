@@ -20,12 +20,12 @@ var spinOptions = {
     , shadow: false // Whether to render a shadow
     , hwaccel: false // Whether to use hardware acceleration
     , position: 'absolute' // Element positioning
-}
+};
 
 var spinTarget = document.getElementById('doit-qpanel')
 var spinner = new Spinner(spinOptions).spin(spinTarget);
 
-// Ajax the json on spinning
+
 // TODO: replace alert()
 function loadXMLDoc() {
     var xmlhttp;
@@ -37,13 +37,14 @@ function loadXMLDoc() {
         // code for IE6, IE5
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
-
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {
             if (xmlhttp.status == 200) {
                 window.jsonQA = JSON.parse(xmlhttp.responseText);
+                window.sizeJSONQA = window.jsonQA.q.length;
                 spinner.stop();     // Stop the spinner on load
-                // rendereverything();
+                initpage();
+                rendereverything();
             }
             else if (xmlhttp.status == 404) {
                 alert('您要找试题不在!');
@@ -56,5 +57,13 @@ function loadXMLDoc() {
     xmlhttp.open("GET", "http://localhost:3000/api/json?n=1037", true);
     xmlhttp.send();
 }
-loadXMLDoc();
 
+// get Ajax on load
+if (window.addEventListener) // W3C standard
+{
+    window.addEventListener('load', loadXMLDoc, false); // NB **not** 'onload'
+}
+else if (window.attachEvent) // Microsoft
+{
+    window.attachEvent('onload', loadXMLDoc);
+}
