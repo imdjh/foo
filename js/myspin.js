@@ -45,6 +45,7 @@ function loadXMLDoc() {
                 spinner.stop();     // Stop the spinner on load
                 initpage();
                 rendereverything();
+                attachEvents();
             }
             else if (xmlhttp.status == 404) {
                 alert('您要找试题不在!');

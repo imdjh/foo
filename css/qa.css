@@ -8,6 +8,7 @@ body {
     vertical-align: middle;
 
 }
+
 .vertical-container-row {
     display: table-cell;
     vertical-align: middle;
@@ -20,7 +21,7 @@ body {
     border: 2px dashed #666666;
 }
 
-#index-droparea > i{
+#index-droparea > i {
     font-size: 500%;
 }
 
@@ -56,7 +57,11 @@ body {
 
 .doit-answer {
     font-size: 175%;
-    padding:0.5em  0.1em;
+    padding: 0.5em 0.1em;
+    border-radius: 4px;
+    border: 1px solid dimgrey;
+    box-shadow: 0px 1px 1.5px #000;
+    cursor: pointer;
 }
 
 .result-toolset-right {
@@ -69,4 +74,24 @@ body {
     position: fixed;
     top: 0px;
     left: 0px;
+}
+
+.doit-onmouse {
+    background-color: darkslategrey;
+}
+
+.doit-answer-selected {
+    background-color: #0099CC;
+}
+
+#doit-hint-popout {
+    // dummy centeralize
+    width: 80%;
+    height: 80vh;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    overflow: hidden;
+    font-size: 3000%;
+    display: none;
 }
